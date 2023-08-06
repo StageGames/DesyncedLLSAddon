@@ -7,7 +7,7 @@ This documentation covers the Lua API for [Desynced][desynced] and is to be used
 Follow the following steps to get started with this Addon.
 
 1. Open (or download and install [Visual Studio Code][vscode]).
-2. [Lua Language Server][lls]'s [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=sumneko.lua) needs to be added.
+2. Install the [Lua Language Server][lls]'s [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=sumneko.lua).
 3. Clone this repo.
 4. Open the mods folder of Desynced with Visual Studio Code.
 5. Inside the mods folder of Desynced, create a new folder ".vscode" if it doesn't exist.
