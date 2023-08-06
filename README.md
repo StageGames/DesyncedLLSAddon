@@ -11,7 +11,7 @@ Follow the following steps to get started with this Addon.
 3. Clone this repo.
 4. Open the mods folder of Desynced with Visual Studio Code.
 5. Inside the mods folder of Desynced, create a new folder called `.vscode` if it doesn't exist.
-6. Inside of ".vscode", create a file called `settings.json`
+6. Inside of the `.vscode` directory, create a file called `settings.json`
 7. Paste the following json into this file, and replace `Lua.workspace.library` with the path this repo has been cloned to.
 
 ```json
