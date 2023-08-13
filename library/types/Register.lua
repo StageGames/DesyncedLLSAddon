@@ -8,7 +8,7 @@
 ---@field component_id string Component id
 ---@field tech_id string Tech id
 ---@field entity Entity Entity
----@field coord point Coordinate
+---@field coord Point Coordinate
 ---@field raw_entity Entity Entity
 ---@field is_link boolean link state
 ---@field is_empty boolean Result
@@ -25,11 +25,11 @@ Register = {}
 ---Clear contents
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#register-clear)
-function Register.Clear() end
+function Register:Clear() end
 
 ---Copy contents from another register or table
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#register-init)
 ---@param p1 Register New register object value
-function Register.Init(p1) end
+function Register:Init(p1) end
 

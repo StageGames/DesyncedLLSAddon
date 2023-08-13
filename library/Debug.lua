@@ -24,13 +24,13 @@ function Debug.PrintCallStack() end
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#debug-getstats)
 ---@returns table # Stats
-function Debug.GetStats() end
+function Debug.GetStats() return {} end
 
 ---Get a hash of the entire map state
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#debug-getmapstatehash)
 ---@returns integer # All hash number
-function Debug.GetMapStateHash() end
+function Debug.GetMapStateHash() return 0 end
 
 ---Start or stop tracking of all LUA memory allocations
 ---
@@ -44,7 +44,7 @@ function Debug.SetMemoryTracking(p1) end
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#debug-benchmark)
 ---@returns integer # Number of milliseconds (returned every second call)
-function Debug.Benchmark() end
+function Debug.Benchmark() return 0 end
 
 ---Crash the program (only works in mod development mode)
 ---

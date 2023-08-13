@@ -12,7 +12,7 @@ EventListener = {}
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#eventlistener-bind)
 ---@param p1 string Function name
 ---@param p2 function Callback function
-function EventListener.Bind(p1, p2) end
+function EventListener:Bind(p1, p2) end
 
 ---Unbind a specific function from this listener
 ---
@@ -21,7 +21,7 @@ function EventListener.Bind(p1, p2) end
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#eventlistener-unbind)
 ---@param p1 string Function name
 ---@param p2 function Callback function
-function EventListener.Unbind(p1, p2) end
+function EventListener:Unbind(p1, p2) end
 
 ---Unbind all functions bound to a given name
 ---
@@ -29,5 +29,5 @@ function EventListener.Unbind(p1, p2) end
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#eventlistener-unbindall)
 ---@param p1 string Function name
-function EventListener.UnbindAll(p1) end
+function EventListener:UnbindAll(p1) end
 

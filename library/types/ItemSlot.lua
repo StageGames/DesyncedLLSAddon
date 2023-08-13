@@ -27,7 +27,7 @@ ItemSlot = {}
 ---@param p1 string Item id
 ---@param p2 integer Amount
 ---@param p3 table|nil Extra data table (OPTIONAL, default nil)
-function ItemSlot.SetItemAndStack(p1, p2, p3) end
+function ItemSlot:SetItemAndStack(p1, p2, p3) end
 
 ---Add amounts in this slot (must have an item in it).
 ---
@@ -35,7 +35,7 @@ function ItemSlot.SetItemAndStack(p1, p2, p3) end
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#itemslot-addstack)
 ---@param p1 integer Amount to be added
-function ItemSlot.AddStack(p1) end
+function ItemSlot:AddStack(p1) end
 
 ---Add or remove amounts in this slot (must have an item in it).
 ---
@@ -49,25 +49,25 @@ function ItemSlot.AddStack(p1) end
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#itemslot-removestack)
 ---@param p1 integer Amount to be removed
-function ItemSlot.RemoveStack(p1) end
+function ItemSlot:RemoveStack(p1) end
 
 ---Clear the content in this slot
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#itemslot-clear)
 ---@returns table # The extra_data table before the slot was cleared
-function ItemSlot.Clear() end
+function ItemSlot:Clear() return {} end
 
 ---Sets the item and locks an otherwise empty slot
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#itemslot-setlockeditem)
 ---@param p1 string|nil Item id (or nil to change a locked slot to empty)
-function ItemSlot.SetLockedItem(p1) end
+function ItemSlot:SetLockedItem(p1) end
 
 ---Swap the entire contents (including reservations) of two slots of the same slot type on the same inventory
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#itemslot-swap)
 ---@param p1 ItemSlot Other item slot (must be of the same slot type and on the same inventory)
-function ItemSlot.Swap(p1) end
+function ItemSlot:Swap(p1) end
 
 ---Move as much as possible (including reservations) into another slot on the same inventory
 ---
@@ -75,23 +75,23 @@ function ItemSlot.Swap(p1) end
 ---@param p1 ItemSlot Target item slot (must be on the same inventory and be empty or have the same item)
 ---@param p2 integer|nil Limit amount to be moved (OPTIONAL, default everything)
 ---@returns boolean # True if any items or reservations have been moved
-function ItemSlot.Move(p1, p2) end
+function ItemSlot:Move(p1, p2) return false end
 
 ---Gets all the reserve information relative to this slot
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#itemslot-getreserveinfo)
 ---@returns table # a set of tables of each reserve info related to this slot
-function ItemSlot.GetReserveInfo() end
+function ItemSlot:GetReserveInfo() return {} end
 
 ---Cancel all orders related to this item slot
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#itemslot-cancelorders)
-function ItemSlot.CancelOrders() end
+function ItemSlot:CancelOrders() end
 
 ---The amount of free space actually available to be filled with a specific item (slot can be empty)
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#itemslot-getunreservedspacefor)
 ---@param p1 string Item id
 ---@returns integer # Unreserved free space count
-function ItemSlot.GetUnreservedSpaceFor(p1) end
+function ItemSlot:GetUnreservedSpaceFor(p1) return 0 end
 

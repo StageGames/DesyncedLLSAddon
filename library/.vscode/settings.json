@@ -1,0 +1,10 @@
+{
+    "Lua.diagnostics.disable": [
+        "duplicate-set-field"
+    ],
+    "Lua.diagnostics.globals": [
+        "Action", "Debug", "Game", "Input",
+        "Map", "Tool", "Twitch", "UI", "View",
+        "data"
+    ]
+}

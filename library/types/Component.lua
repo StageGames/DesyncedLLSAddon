@@ -45,7 +45,7 @@ Component = {}
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-destroy)
 ---@returns table # The final state of the extra_data value after on_remove has been called
-function Component.Destroy() end
+function Component:Destroy() return {} end
 
 ---Prepare a component for removal by clearing out all item slots and reserves related to this component
 ---
@@ -58,49 +58,49 @@ function Component.Destroy() end
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-prepareremoval)
 ---@param p1 ItemSlot|nil An item slot that should be kept empty (OPTIONAL)
 ---@returns boolean # Result
-function Component.PrepareRemoval(p1) end
+function Component:PrepareRemoval(p1) return false end
 
 ---Get a register of this component
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-getregister)
 ---@param p1 Register Register reference
 ---@returns Register # Register object
-function Component.GetRegister(p1) end
+function Component:GetRegister(p1) return Register end
 
 ---Get the number part of a register of this component
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-getregisternum)
 ---@param p1 Register Register reference
 ---@returns integer # Number value
-function Component.GetRegisterNum(p1) end
+function Component:GetRegisterNum(p1) return 0 end
 
 ---Get the id part of a register of this component
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-getregisterid)
 ---@param p1 Register Register reference
 ---@returns string # Id value
-function Component.GetRegisterId(p1) end
+function Component:GetRegisterId(p1) return "" end
 
 ---Get the definition table of the id stored in a register of this component
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-getregisterdef)
 ---@param p1 Register Register reference
 ---@returns table # Definition table
-function Component.GetRegisterDef(p1) end
+function Component:GetRegisterDef(p1) return {} end
 
 ---Get the entity part of a register of this component
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-getregisterentity)
 ---@param p1 Register Register reference
 ---@returns Entity # Entity value
-function Component.GetRegisterEntity(p1) end
+function Component:GetRegisterEntity(p1) return Entity end
 
 ---Get the coordinate part of a register of this component
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-getregistercoord)
 ---@param p1 Register Register reference
----@returns point # Coordinate value
-function Component.GetRegisterCoord(p1) end
+---@returns Point # Coordinate value
+function Component:GetRegisterCoord(p1) return Point end
 
 ---Compare two registers of this component
 ---
@@ -108,7 +108,7 @@ function Component.GetRegisterCoord(p1) end
 ---@param p1 Register First register reference
 ---@param p2 Register Second register reference
 ---@returns boolean # Comparison result
-function Component.RegistersEqual(p1, p2) end
+function Component:RegistersEqual(p1, p2) return false end
 
 ---Set a register of this component
 ---
@@ -116,14 +116,14 @@ function Component.RegistersEqual(p1, p2) end
 ---@param p1 Register Register reference
 ---@param p2 Register Register object value
 ---@param p3 boolean|nil Force update the register and activate the component (OPTIONAL, default false)
-function Component.SetRegister(p1, p2, p3) end
+function Component:SetRegister(p1, p2, p3) end
 
 ---Set the number part of a register of this component
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-setregisternum)
 ---@param p1 Register Register reference
 ---@param p2 integer Number value
-function Component.SetRegisterNum(p1, p2) end
+function Component:SetRegisterNum(p1, p2) end
 
 ---Set the id part of a register of this component (will overwrites the entity/coordinate part)
 ---
@@ -131,7 +131,7 @@ function Component.SetRegisterNum(p1, p2) end
 ---@param p1 Register Register reference
 ---@param p2 string Id value
 ---@param p3 integer|nil Number value (OPTIONAL)
-function Component.SetRegisterId(p1, p2, p3) end
+function Component:SetRegisterId(p1, p2, p3) end
 
 ---Set the entity part of a register of this component (will overwrite the id/coordinate part)
 ---
@@ -139,15 +139,15 @@ function Component.SetRegisterId(p1, p2, p3) end
 ---@param p1 Register Register reference
 ---@param p2 Entity Entity value
 ---@param p3 integer|nil Number value (OPTIONAL)
-function Component.SetRegisterEntity(p1, p2, p3) end
+function Component:SetRegisterEntity(p1, p2, p3) end
 
 ---Set the coordinate part of a register of this component (will overwrite the id/entity part)
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-setregistercoord)
 ---@param p1 Register Register reference
----@param p2 point Coordinate value
+---@param p2 Point Coordinate value
 ---@param p3 integer|nil Number value (OPTIONAL)
-function Component.SetRegisterCoord(p1, p2, p3) end
+function Component:SetRegisterCoord(p1, p2, p3) end
 
 ---Flag the error state on a register of this component
 ---
@@ -156,28 +156,28 @@ function Component.SetRegisterCoord(p1, p2, p3) end
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-flagregistererror)
 ---@param p1 Register Register reference
 ---@param p2 boolean|nil Whether to set the error state (OPTIONAL)
-function Component.FlagRegisterError(p1, p2) end
+function Component:FlagRegisterError(p1, p2) end
 
 ---Check if a register of this component is linked from another register
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-registerislink)
 ---@param p1 Register Register reference
 ---@returns boolean # link state
-function Component.RegisterIsLink(p1) end
+function Component:RegisterIsLink(p1) return false end
 
 ---Check if a register of this component is empty
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-registerisempty)
 ---@param p1 Register Register reference
 ---@returns boolean # Empty
-function Component.RegisterIsEmpty(p1) end
+function Component:RegisterIsEmpty(p1) return false end
 
 ---Check if a register of this component is in error state
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-registeriserror)
 ---@param p1 Register Register reference
 ---@returns boolean # Error
-function Component.RegisterIsError(p1) end
+function Component:RegisterIsError(p1) return false end
 
 ---Check if two registers have a connection via link(s)
 ---
@@ -186,7 +186,7 @@ function Component.RegisterIsError(p1) end
 ---@param p2 Register Register two
 ---@param p3 Entity|nil Different entity that holds the second register (OPTIONAL)
 ---@returns boolean # Check result
-function Component.RegisterHasConnection(p1, p2, p3) end
+function Component:RegisterHasConnection(p1, p2, p3) return false end
 
 ---Check if two registers have a connection via link(s)
 ---
@@ -195,7 +195,7 @@ function Component.RegisterHasConnection(p1, p2, p3) end
 ---@param p2 Register Register two
 ---@param p3 Component A component that holds the second register
 ---@returns boolean # Check result
-function Component.RegisterHasConnection(p1, p2, p3) end
+function Component:RegisterHasConnection(p1, p2, p3) return false end
 
 ---Link a register from another register
 ---
@@ -203,7 +203,7 @@ function Component.RegisterHasConnection(p1, p2, p3) end
 ---@param p1 Register Target register reference
 ---@param p2 Register Source register reference
 ---@param p3 Entity|nil Different entity that holds the source register (OPTIONAL)
-function Component.LinkRegisterFromRegister(p1, p2, p3) end
+function Component:LinkRegisterFromRegister(p1, p2, p3) end
 
 ---Link a register from another register
 ---
@@ -211,7 +211,7 @@ function Component.LinkRegisterFromRegister(p1, p2, p3) end
 ---@param p1 Register Target register reference
 ---@param p2 Register Source register reference
 ---@param p3 Component A component that holds the source register
-function Component.LinkRegisterFromRegister(p1, p2, p3) end
+function Component:LinkRegisterFromRegister(p1, p2, p3) end
 
 ---Unlink a register from another register
 ---
@@ -219,7 +219,7 @@ function Component.LinkRegisterFromRegister(p1, p2, p3) end
 ---@param p1 Register Target register reference
 ---@param p2 Register Source register reference
 ---@param p3 Entity|nil Different entity that holds the source register (OPTIONAL)
-function Component.UnlinkRegisterFromRegister(p1, p2, p3) end
+function Component:UnlinkRegisterFromRegister(p1, p2, p3) end
 
 ---Unlink a register from another register
 ---
@@ -227,7 +227,7 @@ function Component.UnlinkRegisterFromRegister(p1, p2, p3) end
 ---@param p1 Register Target register reference
 ---@param p2 Register Source register reference
 ---@param p3 Component A component that holds the source register
-function Component.UnlinkRegisterFromRegister(p1, p2, p3) end
+function Component:UnlinkRegisterFromRegister(p1, p2, p3) end
 
 ---Get the source index of the first relevant register link
 ---
@@ -238,7 +238,7 @@ function Component.UnlinkRegisterFromRegister(p1, p2, p3) end
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-getregisterlinksource)
 ---@param p1 Register Target register reference
 ---@returns Component|nil # Component that holds the source register or nil if frame register (unless entity/component specified)
-function Component.GetRegisterLinkSource(p1) end
+function Component:GetRegisterLinkSource(p1) return Component end
 
 ---Get the source index of the first relevant register link
 ---
@@ -250,7 +250,7 @@ function Component.GetRegisterLinkSource(p1) end
 ---@param p1 Register Target register reference
 ---@param p2 Entity Entity that holds the source register
 ---@returns Component|nil # Component that holds the source register or nil if frame register (unless entity/component specified)
-function Component.GetRegisterLinkSource(p1, p2) end
+function Component:GetRegisterLinkSource(p1, p2) return Component end
 
 ---Get the source index of the first relevant register link
 ---
@@ -262,7 +262,7 @@ function Component.GetRegisterLinkSource(p1, p2) end
 ---@param p1 Register Target register reference
 ---@param p2 Component Component that holds the source register
 ---@returns Component|nil # Component that holds the source register or nil if frame register (unless entity/component specified)
-function Component.GetRegisterLinkSource(p1, p2) end
+function Component:GetRegisterLinkSource(p1, p2) return Component end
 
 ---Get the target index of the first relevant register link
 ---
@@ -270,7 +270,7 @@ function Component.GetRegisterLinkSource(p1, p2) end
 ---@param p1 Register Source register reference
 ---@param p2 Entity|nil Different entity that holds the source register (OPTIONAL)
 ---@returns integer|nil # Target register index relative to this component (or nil if not exist)
-function Component.GetRegisterLinkTarget(p1, p2) end
+function Component:GetRegisterLinkTarget(p1, p2) return 0 end
 
 ---Get the target index of the first relevant register link
 ---
@@ -278,14 +278,14 @@ function Component.GetRegisterLinkTarget(p1, p2) end
 ---@param p1 Register Source register reference
 ---@param p2 Component Component that holds the source register
 ---@returns integer|nil # Target register index relative to this component (or nil if not exist)
-function Component.GetRegisterLinkTarget(p1, p2) end
+function Component:GetRegisterLinkTarget(p1, p2) return 0 end
 
 ---Get an item slot of this component
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-getslot)
 ---@param p1 integer Slot number (starts at 1)
 ---@returns ItemSlot # Item slot object
-function Component.GetSlot(p1) end
+function Component:GetSlot(p1) return ItemSlot end
 
 ---Clear activation change flags that would trigger the on_update callback in the next tick.
 ---
@@ -298,7 +298,7 @@ function Component.GetSlot(p1) end
 ---Be aware this does not work for the activation modes 'OnAnyItemSlotChange'.
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-clearactivationchangeflags)
-function Component.ClearActivationChangeFlags() end
+function Component:ClearActivationChangeFlags() end
 
 ---Set up a process that consumes ingredients and generates output items
 ---
@@ -307,14 +307,14 @@ function Component.ClearActivationChangeFlags() end
 ---@param p2 table|nil Outputs table (item_id keys and count values) (when nil, act like PrepareConsumeProcess)
 ---@param p3 integer|nil Order count (if multiple processes are queued up) (OPTIONAL, default 1)
 ---@returns Register|nil # A register value describing the first missing ingredient (or nil if all ingredients are available)
-function Component.PrepareProduceProcess(p1, p2, p3) end
+function Component:PrepareProduceProcess(p1, p2, p3) return Register end
 
 ---Set up a process that generates output items
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-preparegenerateprocess)
 ---@param p1 table Outputs table (item_id keys and count values)
 ---@returns boolean # Returns true if inventory space for outputs are available now and process can start
-function Component.PrepareGenerateProcess(p1) end
+function Component:PrepareGenerateProcess(p1) return false end
 
 ---Set up a process that consumes ingredients
 ---
@@ -322,7 +322,7 @@ function Component.PrepareGenerateProcess(p1) end
 ---@param p1 table Ingredients table (item_id keys and count values)
 ---@param p2 integer|nil Order count (if multiple processes are queued up) (OPTIONAL, default 1)
 ---@returns Register|nil # A register value describing the first missing ingredient (or nil if all ingredients are available)
-function Component.PrepareConsumeProcess(p1, p2) end
+function Component:PrepareConsumeProcess(p1, p2) return Register end
 
 ---Set up a process that consumes ingredients
 ---
@@ -330,31 +330,31 @@ function Component.PrepareConsumeProcess(p1, p2) end
 ---@param p1 table Ingredients table (item_id keys and count values)
 ---@param p2 ItemSlot Consume from specific item slot
 ---@returns Register|nil # A register value describing the first missing ingredient (or nil if all ingredients are available)
-function Component.PrepareConsumeProcess(p1, p2) end
+function Component:PrepareConsumeProcess(p1, p2) return Register end
 
 ---Finish a prepared process (add generated items and remove consumed ingredients)
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-fulfillprocess)
-function Component.FulfillProcess() end
+function Component:FulfillProcess() end
 
 ---Cancel ongoing process and related orders from this component
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-cancelprocess)
-function Component.CancelProcess() end
+function Component:CancelProcess() end
 
 ---If there is a prepared process, get an item slot from which items are consumed from.
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-getprocessconsumeslot)
 ---@param p1 integer|nil This selects the slot when there are multiple consume slots (OPTIONAL, default 1)
 ---@returns ItemSlot|nil # Consuming item slot (nil if no active consume process or invalid argument)
-function Component.GetProcessConsumeSlot(p1) end
+function Component:GetProcessConsumeSlot(p1) return ItemSlot end
 
 ---If there is a prepared process, get an item slot from which items are output to.
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-getprocessoutputslot)
 ---@param p1 integer|nil This selects the slot when there are multiple output slots (OPTIONAL, default 1)
 ---@returns ItemSlot|nil # Output item slot (nil if no active generate process or invalid argument)
-function Component.GetProcessOutputSlot(p1) end
+function Component:GetProcessOutputSlot(p1) return ItemSlot end
 
 ---Order an item through this component
 ---
@@ -379,21 +379,21 @@ function Component.GetProcessOutputSlot(p1) end
 ---@param p2 string Item id to be ordered
 ---@param p3 integer Amount to be ordered
 ---@returns integer # Order ID created or modified
-function Component.OrderItem(p1, p2, p3) end
+function Component:OrderItem(p1, p2, p3) return 0 end
 
 ---Turns component to look at a target entity or location
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-rotatecomponent)
 ---@param p1 Entity Target entity to look at
 ---@param p2 boolean|nil If the entity has movement rotate it instead (OPTIONAL, default false)
-function Component.RotateComponent(p1, p2) end
+function Component:RotateComponent(p1, p2) end
 
 ---Turns component to look at a target entity or location
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-rotatecomponent)
 ---@param p1 Component Target component whose owning entity to look at
 ---@param p2 boolean|nil If the entity has movement rotate it instead (OPTIONAL, default false)
-function Component.RotateComponent(p1, p2) end
+function Component:RotateComponent(p1, p2) end
 
 ---Turns component to look at a target entity or location
 ---
@@ -401,20 +401,20 @@ function Component.RotateComponent(p1, p2) end
 ---@param p1 integer Look-at target location X
 ---@param p2 integer Look-at target location Y
 ---@param p3 boolean|nil If the entity has movement rotate it instead (OPTIONAL, default false)
-function Component.RotateComponent(p1, p2, p3) end
+function Component:RotateComponent(p1, p2, p3) end
 
 ---Turns component to look at a target entity or location
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-rotatecomponent)
----@param p1 point Look-at target location
+---@param p1 Point Look-at target location
 ---@param p2 boolean|nil If the entity has movement rotate it instead (OPTIONAL, default false)
-function Component.RotateComponent(p1, p2) end
+function Component:RotateComponent(p1, p2) end
 
 ---Turns component to look at a target entity or location
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-rotatecomponent)
 ---@param p1 integer Offset degree amount to rotate (negative or positive)
-function Component.RotateComponent(p1) end
+function Component:RotateComponent(p1) end
 
 ---Request the entity to move on behalf of this component (if movement is needed)
 ---
@@ -423,7 +423,7 @@ function Component.RotateComponent(p1) end
 ---@param p2 integer|nil Range of how close by to stop (OPTIONAL, default 1)
 ---@param p3 boolean|nil Keep moving when component sleeps or starts working (OPTIONAL, default false)
 ---@returns boolean # Returns true if movement is needed, otherwise the entity is already in place
-function Component.RequestStateMove(p1, p2, p3) end
+function Component:RequestStateMove(p1, p2, p3) return false end
 
 ---Request the entity to move on behalf of this component (if movement is needed)
 ---
@@ -432,7 +432,7 @@ function Component.RequestStateMove(p1, p2, p3) end
 ---@param p2 integer|nil Range of how close by to stop (OPTIONAL, default 1)
 ---@param p3 boolean|nil Keep moving when component sleeps or starts working (OPTIONAL, default false)
 ---@returns boolean # Returns true if movement is needed, otherwise the entity is already in place
-function Component.RequestStateMove(p1, p2, p3) end
+function Component:RequestStateMove(p1, p2, p3) return false end
 
 ---Request the entity to move on behalf of this component (if movement is needed)
 ---
@@ -442,23 +442,23 @@ function Component.RequestStateMove(p1, p2, p3) end
 ---@param p3 integer|nil Range of how close by to stop (OPTIONAL, default 0)
 ---@param p4 boolean|nil Keep moving when component sleeps or starts working (OPTIONAL, default false)
 ---@returns boolean # Returns true if movement is needed, otherwise the entity is already in place
-function Component.RequestStateMove(p1, p2, p3, p4) end
+function Component:RequestStateMove(p1, p2, p3, p4) return false end
 
 ---Request the entity to move on behalf of this component (if movement is needed)
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-requeststatemove)
----@param p1 point Move location
+---@param p1 Point Move location
 ---@param p2 integer|nil Range of how close by to stop (OPTIONAL, default 0)
 ---@param p3 boolean|nil Keep moving when component sleeps or starts working (OPTIONAL, default false)
 ---@returns boolean # Returns true if movement is needed, otherwise the entity is already in place
-function Component.RequestStateMove(p1, p2, p3) end
+function Component:RequestStateMove(p1, p2, p3) return false end
 
 ---Request the component to sleep
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-setstatesleep)
 ---@param p1 integer|nil Number of ticks to sleep (OPTIONAL, default 5)
 ---@param p2 boolean|nil Keep movement control (OPTIONAL, default false)
-function Component.SetStateSleep(p1, p2) end
+function Component:SetStateSleep(p1, p2) end
 
 ---Request the component to work for a duration
 ---
@@ -467,7 +467,7 @@ function Component.SetStateSleep(p1, p2) end
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-setstatestartwork)
 ---@param p1 integer|nil Number of ticks to work (OPTIONAL, default 5)
 ---@param p2 boolean|nil Refresh flag, if true, the component will be updated every 5 ticks during work (OPTIONAL, default false)
-function Component.SetStateStartWork(p1, p2) end
+function Component:SetStateStartWork(p1, p2) end
 
 ---Request the component to work for a duration
 ---
@@ -476,47 +476,47 @@ function Component.SetStateStartWork(p1, p2) end
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-setstatestartwork)
 ---@param p1 integer Total number of ticks to work
 ---@param p2 integer Refresh tick count, will update the component periodically during work (max 255)
-function Component.SetStateStartWork(p1, p2) end
+function Component:SetStateStartWork(p1, p2) end
 
 ---Notify other components waiting for this with CC_OTHER_COMP_FAIL_WORK
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-notifyworkfailed)
-function Component.NotifyWorkFailed() end
+function Component:NotifyWorkFailed() end
 
 ---Continue work that was started with SetStateStartWork
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-setstatecontinuework)
-function Component.SetStateContinueWork() end
+function Component:SetStateContinueWork() end
 
 ---Get called back the next time the first register of this component changes
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-waitforfirstregisterchange)
-function Component.WaitForFirstRegisterChange() end
+function Component:WaitForFirstRegisterChange() end
 
 ---Get called back the next time any register of this component changes
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-waitforcomponentregisterchange)
-function Component.WaitForComponentRegisterChange() end
+function Component:WaitForComponentRegisterChange() end
 
 ---Get called back the next time the first item slot of this component changes
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-waitforfirstitemslotchange)
-function Component.WaitForFirstItemSlotChange() end
+function Component:WaitForFirstItemSlotChange() end
 
 ---Get called back the next time any item slot of this component changes
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-waitforcomponentitemslotchange)
-function Component.WaitForComponentItemSlotChange() end
+function Component:WaitForComponentItemSlotChange() end
 
 ---Get called back the next time the entity has low power
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-waitforlowpower)
-function Component.WaitForLowPower() end
+function Component:WaitForLowPower() end
 
 ---Get called back the next time the battery charge is empty
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-waitforpowerstoredempty)
-function Component.WaitForPowerStoredEmpty() end
+function Component:WaitForPowerStoredEmpty() end
 
 ---Get called back when another component finishes work
 ---
@@ -524,7 +524,7 @@ function Component.WaitForPowerStoredEmpty() end
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-waitforothercompfinish)
 ---@param p1 Component Another component to get called back the next time it finishes work
-function Component.WaitForOtherCompFinish(p1) end
+function Component:WaitForOtherCompFinish(p1) end
 
 ---Activate a component (trigger on_update)
 ---
@@ -535,7 +535,7 @@ function Component.WaitForOtherCompFinish(p1) end
 ---Cannot be called from inside the on_update function (check with `is_updating`).
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-activate)
-function Component.Activate() end
+function Component:Activate() end
 
 ---Deactivate a component (stop triggering on_update)
 ---
@@ -544,20 +544,20 @@ function Component.Activate() end
 ---Cannot be called from inside the on_update function (check with `is_updating`).
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-shutdown)
-function Component.Shutdown() end
+function Component:Shutdown() end
 
 ---Convert a numerical cause variable received in on_update to a string (for debugging purpose)
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-causetostring)
 ---@param p1 integer Cause
-function Component.CauseToString(p1) end
+function Component:CauseToString(p1) end
 
 ---Search for the closest entity of all matching entities inside this components trigger_radius
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-findclosesttriggeringentity)
 ---@param p1 function Callback called for each entity in range in order of distance, return true from this to stop the search
 ---@returns Entity|nil # The entity for which the callback returned true (or nil if none)
-function Component.FindClosestTriggeringEntity(p1) end
+function Component:FindClosestTriggeringEntity(p1) return Entity end
 
 ---Spawn particle/sound effect on this component
 ---
@@ -569,7 +569,7 @@ function Component.FindClosestTriggeringEntity(p1) end
 ---@param p3 Entity|nil Target entity (OPTIONAL)
 ---@param p4 integer|nil Target render instance (OPTIONAL)
 ---@returns integer # Effect instance index (only for looping effects, can be used with `entity:StopEffect`)
-function Component.PlayEffect(p1, p2, p3, p4) end
+function Component:PlayEffect(p1, p2, p3, p4) return 0 end
 
 ---Play effect for working component
 ---
@@ -582,10 +582,10 @@ function Component.PlayEffect(p1, p2, p3, p4) end
 ---@param p2 string|nil Socket name (OPTIONAL)
 ---@param p3 Entity|nil Target entity (OPTIONAL)
 ---@param p4 integer|nil Target render instance (OPTIONAL)
-function Component.PlayWorkEffect(p1, p2, p3, p4) end
+function Component:PlayWorkEffect(p1, p2, p3, p4) end
 
 ---Stop all looping effects playing on this component
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-stopeffects)
-function Component.StopEffects() end
+function Component:StopEffects() end
 

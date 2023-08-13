@@ -7,19 +7,19 @@ Input = {}
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#input-isshiftdown)
 ---@returns boolean # Key state
-function Input.IsShiftDown() end
+function Input.IsShiftDown() return false end
 
 ---Check if the control key is pressed (either left or right control key)
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#input-iscontroldown)
 ---@returns boolean # Key state
-function Input.IsControlDown() end
+function Input.IsControlDown() return false end
 
 ---Check if the alt key is pressed (either left or right alt key)
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#input-isaltdown)
 ---@returns boolean # Key state
-function Input.IsAltDown() end
+function Input.IsAltDown() return false end
 
 ---Check if a specific key is pressed
 ---
@@ -28,7 +28,7 @@ function Input.IsAltDown() end
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#input-iskeydown)
 ---@param p1 string Key name
 ---@returns boolean # Key pressed state
-function Input.IsKeyDown(p1) end
+function Input.IsKeyDown(p1) return false end
 
 ---Bind a callback function to a named input action
 ---
@@ -37,7 +37,7 @@ function Input.IsKeyDown(p1) end
 ---@param p2 string Key event (one of 'Pressed', 'Released', 'Repeat', 'DoubleClick', 'Axis')
 ---@param p3 function Lua Function
 ---@returns integer # Binding handle (for use with RemoveActionBinding)
-function Input.BindAction(p1, p2, p3) end
+function Input.BindAction(p1, p2, p3) return 0 end
 
 ---Bind a callback function to a named input action
 ---
@@ -46,7 +46,7 @@ function Input.BindAction(p1, p2, p3) end
 ---@param p2 string Key event (one of 'Pressed', 'Released', 'Repeat', 'DoubleClick', 'Axis')
 ---@param p3 string Built in game function name
 ---@returns integer # Binding handle (for use with RemoveActionBinding)
-function Input.BindAction(p1, p2, p3) end
+function Input.BindAction(p1, p2, p3) return 0 end
 
 ---Bind a callback function to a named input axis
 ---
@@ -109,7 +109,7 @@ function Input.RemoveAxisMapping(p1, p2) end
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#input-getbindingnames)
 ---@returns table # Table with key ids and localized key names
-function Input.GetBindingNames() end
+function Input.GetBindingNames() return {} end
 
 ---Set custom input processor which can pre-process all input events
 ---

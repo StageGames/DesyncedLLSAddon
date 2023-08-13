@@ -13,25 +13,25 @@ function Map.SetGameSpeed(p1) end
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-getgamespeed)
 ---@returns integer # Game speed
-function Map.GetGameSpeed() end
+function Map.GetGameSpeed() return 0 end
 
 ---Check if LUA is currently running in simulation context
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-issimulation)
 ---@returns boolean # True if in simulation context, false if in UI context
-function Map.IsSimulation() end
+function Map.IsSimulation() return false end
 
 ---Check if the active map is the front-end menu
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-isfrontend)
 ---@returns boolean # True if front-end
-function Map.IsFrontEnd() end
+function Map.IsFrontEnd() return false end
 
 ---Get current map settings (read only)
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-getsettings)
 ---@returns table # Current map settings
-function Map.GetSettings() end
+function Map.GetSettings() return {} end
 
 ---Modify game settings during the simulation
 ---
@@ -46,7 +46,7 @@ function Map.ModifySettings(p1, p2) end
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-getseed)
 ---@returns integer # Current map seed
-function Map.GetSeed() end
+function Map.GetSeed() return 0 end
 
 ---Get save table (can only be modified in simulation context)
 ---
@@ -57,7 +57,7 @@ function Map.GetSeed() end
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-getsave)
 ---@param p1 string|nil Mod id (OPTIONAL)
 ---@returns table # Save table
-function Map.GetSave(p1) end
+function Map.GetSave(p1) return {} end
 
 ---Call bound MapMsg functions
 ---
@@ -70,13 +70,13 @@ function Map.Run(p1, p2) end
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-gettick)
 ---@returns integer # Tick number
-function Map.GetTick() end
+function Map.GetTick() return 0 end
 
 ---Get the number of player actions that have been executed
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-getexecutedactioncount)
 ---@returns integer # Action count
-function Map.GetExecutedActionCount() end
+function Map.GetExecutedActionCount() return 0 end
 
 ---Create a new entity from a frame definition
 ---
@@ -86,14 +86,14 @@ function Map.GetExecutedActionCount() end
 ---@param p3 string|nil Specific visual id or another frame id from which to use the visual (OPTIONAL, defaults to frame visual)
 ---@param p4 boolean|nil Pass true for entities spawned as part of map generation (OPTIONAL)
 ---@returns Entity|nil # Entity object (or nil on error)
-function Map.CreateEntity(p1, p2, p3, p4) end
+function Map.CreateEntity(p1, p2, p3, p4) return Entity end
 
 ---Drop an item at a specific location.
 ---
 ---Will combine with existing dropped items if one exists and has space.
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-dropitemat)
----@param p1 area|point|Entity Location
+---@param p1 Area|Point|Entity Location
 ---@param p2 string Item id
 ---@param p3 integer|nil Amount (OPTIONAL, default 1)
 ---@param p4 table|nil Extra data table (OPTIONAL, default nil)
@@ -106,57 +106,57 @@ function Map.DropItemAt(p1, p2, p3, p4, p5, p6) end
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-getfaction)
 ---@param p1 string Faction id
 ---@returns Faction|nil # Faction object (or nil on error)
-function Map.GetFaction(p1) end
+function Map.GetFaction(p1) return Faction end
 
 ---Create a new faction (or get it if it already exists)
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-createfaction)
 ---@param p1 string Faction id
 ---@returns boolean # True if this faction was newly created, false if it already existed
-function Map.CreateFaction(p1) end
+function Map.CreateFaction(p1) return false end
 
 ---Get all factions
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-getfactions)
 ---@returns table # List of faction objects
-function Map.GetFactions() end
+function Map.GetFactions() return {} end
 
 ---Get the number of spawned player faction
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-getplayerfactioncount)
 ---@returns integer # Number of player controlled factions
-function Map.GetPlayerFactionCount() end
+function Map.GetPlayerFactionCount() return 0 end
 
 ---Get the number of days progressed
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-gettotaldays)
 ---@returns integer # Number of days (floating point value, fractional part indicates time of day)
-function Map.GetTotalDays() end
+function Map.GetTotalDays() return 0 end
 
 ---Get the current sunlight intensity
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-getsunlightintensity)
 ---@returns integer # Sunlight intensity
-function Map.GetSunlightIntensity() end
+function Map.GetSunlightIntensity() return 0 end
 
 ---Get the current amount of sunlight (square root of sunlight intensity)
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-getsunlightamount)
 ---@returns integer # Amount of sunlight (between 0.0 and 1.0 inclusive)
-function Map.GetSunlightAmount() end
+function Map.GetSunlightAmount() return 0 end
 
 ---Get the direction of the sunlight as a normalized vector
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-getsunlightdirection)
 ---@returns integer # Sunlight Y direction
-function Map.GetSunlightDirection() end
+function Map.GetSunlightDirection() return 0 end
 
 ---Get the day time of sunrise and sunset
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-getsunriseandsunset)
 ---@param p1 integer|nil Return time when the sun crosses a given amount of sunlight intensity (OPTIONAL, default 0.0)
 ---@returns integer # Sunset time (between 0.0 and 1.0)
-function Map.GetSunriseAndSunset(p1) end
+function Map.GetSunriseAndSunset(p1) return 0 end
 
 ---Get the location of the Nth next unspawned chunk
 ---
@@ -165,66 +165,66 @@ function Map.GetSunriseAndSunset(p1) end
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-getundiscoveredlocation)
 ---@param p1 integer|nil Request the Nth undiscovered chunk (OPTIONAL, default first)
 ---@returns integer # Y position
-function Map.GetUndiscoveredLocation(p1) end
+function Map.GetUndiscoveredLocation(p1) return 0 end
 
 ---Make sure chunks exist at the given location
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-spawnchunks)
----@param p1 area|point|Entity Location or area to spawn chunks for
+---@param p1 Area|Point|Entity Location or area to spawn chunks for
 ---@returns integer # Returns how many new chunks were created
-function Map.SpawnChunks(p1) end
+function Map.SpawnChunks(p1) return 0 end
 
 ---Get blightness for a tile or area
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-getblightness)
----@param p1 area|point|Entity Location to check
+---@param p1 Area|Point|Entity Location to check
 ---@param p2 boolean|nil If checking more than a single tile, return the smallest value instead of the biggest (OPTIONAL, default false)
 ---@returns integer # blightness
-function Map.GetBlightness(p1, p2) end
+function Map.GetBlightness(p1, p2) return 0 end
 
 ---Get elevation for a tile or area
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-getelevation)
----@param p1 area|point|Entity Location to check
+---@param p1 Area|Point|Entity Location to check
 ---@param p2 boolean|nil If checking more than a single tile, return the smallest value instead of the biggest (OPTIONAL, default false)
 ---@returns integer # elevation
-function Map.GetElevation(p1, p2) end
+function Map.GetElevation(p1, p2) return 0 end
 
 ---Get richness for a tile or area
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-getrichness)
----@param p1 area|point|Entity Location to check
+---@param p1 Area|Point|Entity Location to check
 ---@param p2 boolean|nil If checking more than a single tile, return the smallest value instead of the biggest (OPTIONAL, default false)
 ---@returns integer # richness
-function Map.GetRichness(p1, p2) end
+function Map.GetRichness(p1, p2) return 0 end
 
 ---Get variation for a tile or area
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-getvariation)
----@param p1 area|point|Entity Location to check
+---@param p1 Area|Point|Entity Location to check
 ---@param p2 boolean|nil If checking more than a single tile, return the smallest value instead of the biggest (OPTIONAL, default false)
 ---@returns table # cell, distance
-function Map.GetVariation(p1, p2) end
+function Map.GetVariation(p1, p2) return {} end
 
 ---Get height for a tile or area
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-getheight)
----@param p1 area|point|Entity Location to check
+---@param p1 Area|Point|Entity Location to check
 ---@param p2 boolean|nil If checking more than a single tile, return the smallest value instead of the biggest (OPTIONAL, default false)
 ---@returns integer # height
-function Map.GetHeight(p1, p2) end
+function Map.GetHeight(p1, p2) return 0 end
 
 ---Get plateau height
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-getplateauheight)
 ---@returns integer # plateau height
-function Map.GetPlateauHeight() end
+function Map.GetPlateauHeight() return 0 end
 
 ---Get water height
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-getwaterheight)
 ---@returns integer # water height
-function Map.GetWaterHeight() end
+function Map.GetWaterHeight() return 0 end
 
 ---Get table with full tile data for a given location
 ---
@@ -232,7 +232,7 @@ function Map.GetWaterHeight() end
 ---@param p1 integer X coordinate
 ---@param p2 integer Y coordinate
 ---@returns table # blightness, elevation, richness, variation
-function Map.GetTileData(p1, p2) end
+function Map.GetTileData(p1, p2) return {} end
 
 ---Defer function until after components have been processed
 ---
@@ -261,7 +261,7 @@ function Map.Delay(p1, p2, p3) end
 ---@param p2 integer Range
 ---@param p3 integer Rate (change per tick)
 ---@returns integer # Terraforming instance index
-function Map.StartTerraforming(p1, p2, p3) end
+function Map.StartTerraforming(p1, p2, p3) return 0 end
 
 ---End terraforming
 ---
@@ -277,7 +277,7 @@ function Map.StopTerraforming(p1) end
 ---@param p1 integer X coordinate
 ---@param p2 integer Y coordinate
 ---@returns Entity|nil # Entity (or nil if none)
-function Map.GetEntityAt(p1, p2) end
+function Map.GetEntityAt(p1, p2) return Entity end
 
 ---Get a foundation entity at a specific location
 ---
@@ -285,7 +285,7 @@ function Map.GetEntityAt(p1, p2) end
 ---@param p1 integer X coordinate
 ---@param p2 integer Y coordinate
 ---@returns Entity|nil # Entity (or nil if none)
-function Map.GetFoundationEntityAt(p1, p2) end
+function Map.GetFoundationEntityAt(p1, p2) return Entity end
 
 ---Get all entities at a specific location
 ---
@@ -293,19 +293,19 @@ function Map.GetFoundationEntityAt(p1, p2) end
 ---@param p1 integer X coordinate
 ---@param p2 integer Y coordinate
 ---@returns table # Array of entities
-function Map.GetEntitiesAt(p1, p2) end
+function Map.GetEntitiesAt(p1, p2) return {} end
 
 ---Search for the closest entity in a range
 ---
 ---If an entity is used to specify the area, the callback will not be called for this entity
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-findclosestentity)
----@param p1 area|point|Entity Area to start the check from
+---@param p1 Area|Point|Entity Area to start the check from
 ---@param p2 integer Search radius in tiles
 ---@param p3 string|nil Filter by frame type (DroppedItem, Construction, Resource, Operating) (OPTIONAL, default all)
 ---@param p4 function Callback called for each entity in range in order of distance, return true from this to stop the search
 ---@returns Entity|nil # The entity for which the callback returned true (or nil if none)
-function Map.FindClosestEntity(p1, p2, p3, p4) end
+function Map.FindClosestEntity(p1, p2, p3, p4) return Entity end
 
 ---Show a item throw effect
 ---
