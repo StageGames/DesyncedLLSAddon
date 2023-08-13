@@ -105,8 +105,8 @@ function Map.DropItemAt(p1, p2, p3, p4, p5, p6) end
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-getfaction)
 ---@param p1 string Faction id
----@returns Faction|nil # Faction object (or nil on error)
-function Map.GetFaction(p1) return Faction end
+---@returns Faction|string|nil # Faction object (or nil on error)
+function Map.GetFaction(p1) return Faction|string end
 
 ---Create a new faction (or get it if it already exists)
 ---

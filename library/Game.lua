@@ -249,8 +249,8 @@ function Game.GetVersionString() return "" end
 ---Get the local player faction
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#game-getlocalplayerfaction)
----@returns Faction|nil # Local player faction (or nil if there is none)
-function Game.GetLocalPlayerFaction() return Faction end
+---@returns Faction|string|nil # Local player faction (or nil if there is none)
+function Game.GetLocalPlayerFaction() return Faction|string end
 
 ---Get the local player extra data
 ---

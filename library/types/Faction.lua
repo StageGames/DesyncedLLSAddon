@@ -316,7 +316,7 @@ function Faction:GetVisibleEntities(p1) return {} end
 ---The trust level from/to the world faction and self can't be changed
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#faction-settrust)
----@param p1 Faction Other faction or faction id
+---@param p1 Faction|string Other faction or faction id
 ---@param p2 string Trust level, one of 'ENEMY', 'NEUTRAL' or 'ALLY'
 function Faction:SetTrust(p1, p2) end
 
@@ -333,7 +333,7 @@ function Faction:SetTrust(p1, p2, p3) end
 ---Get the trust level towards another faction
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#faction-gettrust)
----@param p1 Faction Other faction or faction id
+---@param p1 Faction|string Other faction or faction id
 ---@returns string|nil # Trust level, one of 'ENEMY', 'NEUTRAL' or 'ALLY' (will always be 'ALLY' when checking against self and nil when other faction doesn't exist)
 function Faction:GetTrust(p1) return "" end
 

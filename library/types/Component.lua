@@ -1,6 +1,6 @@
 ---@class Component
 ---@field owner Entity Owner entity
----@field faction Faction Faction object
+---@field faction Faction|string Faction object
 ---@field exists boolean Exist state
 ---@field key integer key
 ---@field id string Component id
@@ -63,50 +63,50 @@ function Component:PrepareRemoval(p1) return false end
 ---Get a register of this component
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-getregister)
----@param p1 Register Register reference
+---@param p1 Register|integer Register reference
 ---@returns Register # Register object
 function Component:GetRegister(p1) return Register end
 
 ---Get the number part of a register of this component
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-getregisternum)
----@param p1 Register Register reference
+---@param p1 Register|integer Register reference
 ---@returns integer # Number value
 function Component:GetRegisterNum(p1) return 0 end
 
 ---Get the id part of a register of this component
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-getregisterid)
----@param p1 Register Register reference
+---@param p1 Register|integer Register reference
 ---@returns string # Id value
 function Component:GetRegisterId(p1) return "" end
 
 ---Get the definition table of the id stored in a register of this component
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-getregisterdef)
----@param p1 Register Register reference
+---@param p1 Register|integer Register reference
 ---@returns table # Definition table
 function Component:GetRegisterDef(p1) return {} end
 
 ---Get the entity part of a register of this component
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-getregisterentity)
----@param p1 Register Register reference
+---@param p1 Register|integer Register reference
 ---@returns Entity # Entity value
 function Component:GetRegisterEntity(p1) return Entity end
 
 ---Get the coordinate part of a register of this component
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-getregistercoord)
----@param p1 Register Register reference
+---@param p1 Register|integer Register reference
 ---@returns Point # Coordinate value
 function Component:GetRegisterCoord(p1) return Point end
 
 ---Compare two registers of this component
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-registersequal)
----@param p1 Register First register reference
----@param p2 Register Second register reference
+---@param p1 Register|integer First register reference
+---@param p2 Register|integer Second register reference
 ---@returns boolean # Comparison result
 function Component:RegistersEqual(p1, p2) return false end
 
@@ -114,21 +114,21 @@ function Component:RegistersEqual(p1, p2) return false end
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-setregister)
 ---@param p1 Register|integer Register reference
----@param p2 Register|integer Register object value
+---@param p2 Register Register object value
 ---@param p3 boolean|nil Force update the register and activate the component (OPTIONAL, default false)
 function Component:SetRegister(p1, p2, p3) end
 
 ---Set the number part of a register of this component
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-setregisternum)
----@param p1 Register Register reference
+---@param p1 Register|integer Register reference
 ---@param p2 integer Number value
 function Component:SetRegisterNum(p1, p2) end
 
 ---Set the id part of a register of this component (will overwrites the entity/coordinate part)
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-setregisterid)
----@param p1 Register Register reference
+---@param p1 Register|integer Register reference
 ---@param p2 string Id value
 ---@param p3 integer|nil Number value (OPTIONAL)
 function Component:SetRegisterId(p1, p2, p3) end
@@ -136,7 +136,7 @@ function Component:SetRegisterId(p1, p2, p3) end
 ---Set the entity part of a register of this component (will overwrite the id/coordinate part)
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-setregisterentity)
----@param p1 Register Register reference
+---@param p1 Register|integer Register reference
 ---@param p2 Entity Entity value
 ---@param p3 integer|nil Number value (OPTIONAL)
 function Component:SetRegisterEntity(p1, p2, p3) end
@@ -144,7 +144,7 @@ function Component:SetRegisterEntity(p1, p2, p3) end
 ---Set the coordinate part of a register of this component (will overwrite the id/entity part)
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-setregistercoord)
----@param p1 Register Register reference
+---@param p1 Register|integer Register reference
 ---@param p2 Point Coordinate value
 ---@param p3 integer|nil Number value (OPTIONAL)
 function Component:SetRegisterCoord(p1, p2, p3) end
@@ -154,36 +154,36 @@ function Component:SetRegisterCoord(p1, p2, p3) end
 ---Will stay flagged until the register value changes.
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-flagregistererror)
----@param p1 Register Register reference
+---@param p1 Register|integer Register reference
 ---@param p2 boolean|nil Whether to set the error state (OPTIONAL)
 function Component:FlagRegisterError(p1, p2) end
 
 ---Check if a register of this component is linked from another register
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-registerislink)
----@param p1 Register Register reference
+---@param p1 Register|integer Register reference
 ---@returns boolean # link state
 function Component:RegisterIsLink(p1) return false end
 
 ---Check if a register of this component is empty
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-registerisempty)
----@param p1 Register Register reference
+---@param p1 Register|integer Register reference
 ---@returns boolean # Empty
 function Component:RegisterIsEmpty(p1) return false end
 
 ---Check if a register of this component is in error state
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-registeriserror)
----@param p1 Register Register reference
+---@param p1 Register|integer Register reference
 ---@returns boolean # Error
 function Component:RegisterIsError(p1) return false end
 
 ---Check if two registers have a connection via link(s)
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-registerhasconnection)
----@param p1 Register Register one
----@param p2 Register Register two
+---@param p1 Register|integer Register one
+---@param p2 Register|integer Register two
 ---@param p3 Entity|nil Different entity that holds the second register (OPTIONAL)
 ---@returns boolean # Check result
 function Component:RegisterHasConnection(p1, p2, p3) return false end
@@ -191,8 +191,8 @@ function Component:RegisterHasConnection(p1, p2, p3) return false end
 ---Check if two registers have a connection via link(s)
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-registerhasconnection)
----@param p1 Register Register one
----@param p2 Register Register two
+---@param p1 Register|integer Register one
+---@param p2 Register|integer Register two
 ---@param p3 Component A component that holds the second register
 ---@returns boolean # Check result
 function Component:RegisterHasConnection(p1, p2, p3) return false end
@@ -200,32 +200,32 @@ function Component:RegisterHasConnection(p1, p2, p3) return false end
 ---Link a register from another register
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-linkregisterfromregister)
----@param p1 Register Target register reference
----@param p2 Register Source register reference
+---@param p1 Register|integer Target register reference
+---@param p2 Register|integer Source register reference
 ---@param p3 Entity|nil Different entity that holds the source register (OPTIONAL)
 function Component:LinkRegisterFromRegister(p1, p2, p3) end
 
 ---Link a register from another register
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-linkregisterfromregister)
----@param p1 Register Target register reference
----@param p2 Register Source register reference
+---@param p1 Register|integer Target register reference
+---@param p2 Register|integer Source register reference
 ---@param p3 Component A component that holds the source register
 function Component:LinkRegisterFromRegister(p1, p2, p3) end
 
 ---Unlink a register from another register
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-unlinkregisterfromregister)
----@param p1 Register Target register reference
----@param p2 Register Source register reference
+---@param p1 Register|integer Target register reference
+---@param p2 Register|integer Source register reference
 ---@param p3 Entity|nil Different entity that holds the source register (OPTIONAL)
 function Component:UnlinkRegisterFromRegister(p1, p2, p3) end
 
 ---Unlink a register from another register
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-unlinkregisterfromregister)
----@param p1 Register Target register reference
----@param p2 Register Source register reference
+---@param p1 Register|integer Target register reference
+---@param p2 Register|integer Source register reference
 ---@param p3 Component A component that holds the source register
 function Component:UnlinkRegisterFromRegister(p1, p2, p3) end
 
@@ -236,7 +236,7 @@ function Component:UnlinkRegisterFromRegister(p1, p2, p3) end
 ---Otherwise it will look up a specific link and return only the register index.
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-getregisterlinksource)
----@param p1 Register Target register reference
+---@param p1 Register|integer Target register reference
 ---@returns Component|nil # Component that holds the source register or nil if frame register (unless entity/component specified)
 function Component:GetRegisterLinkSource(p1) return Component end
 
@@ -247,7 +247,7 @@ function Component:GetRegisterLinkSource(p1) return Component end
 ---Otherwise it will look up a specific link and return only the register index.
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-getregisterlinksource)
----@param p1 Register Target register reference
+---@param p1 Register|integer Target register reference
 ---@param p2 Entity Entity that holds the source register
 ---@returns Component|nil # Component that holds the source register or nil if frame register (unless entity/component specified)
 function Component:GetRegisterLinkSource(p1, p2) return Component end
@@ -259,7 +259,7 @@ function Component:GetRegisterLinkSource(p1, p2) return Component end
 ---Otherwise it will look up a specific link and return only the register index.
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-getregisterlinksource)
----@param p1 Register Target register reference
+---@param p1 Register|integer Target register reference
 ---@param p2 Component Component that holds the source register
 ---@returns Component|nil # Component that holds the source register or nil if frame register (unless entity/component specified)
 function Component:GetRegisterLinkSource(p1, p2) return Component end
@@ -267,7 +267,7 @@ function Component:GetRegisterLinkSource(p1, p2) return Component end
 ---Get the target index of the first relevant register link
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-getregisterlinktarget)
----@param p1 Register Source register reference
+---@param p1 Register|integer Source register reference
 ---@param p2 Entity|nil Different entity that holds the source register (OPTIONAL)
 ---@returns integer|nil # Target register index relative to this component (or nil if not exist)
 function Component:GetRegisterLinkTarget(p1, p2) return 0 end
@@ -275,7 +275,7 @@ function Component:GetRegisterLinkTarget(p1, p2) return 0 end
 ---Get the target index of the first relevant register link
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-getregisterlinktarget)
----@param p1 Register Source register reference
+---@param p1 Register|integer Source register reference
 ---@param p2 Component Component that holds the source register
 ---@returns integer|nil # Target register index relative to this component (or nil if not exist)
 function Component:GetRegisterLinkTarget(p1, p2) return 0 end
