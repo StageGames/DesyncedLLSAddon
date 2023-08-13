@@ -81,7 +81,7 @@ function Map.GetExecutedActionCount() return 0 end
 ---Create a new entity from a frame definition
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#map-createentity)
----@param p1 Faction Faction or faction id
+---@param p1 Faction|string Faction or faction id
 ---@param p2 string Frame id
 ---@param p3 string|nil Specific visual id or another frame id from which to use the visual (OPTIONAL, defaults to frame visual)
 ---@param p4 boolean|nil Pass true for entities spawned as part of map generation (OPTIONAL)

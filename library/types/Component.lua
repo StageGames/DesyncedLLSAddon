@@ -113,8 +113,8 @@ function Component:RegistersEqual(p1, p2) return false end
 ---Set a register of this component
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#component-setregister)
----@param p1 Register Register reference
----@param p2 Register Register object value
+---@param p1 Register|integer Register reference
+---@param p2 Register|integer Register object value
 ---@param p3 boolean|nil Force update the register and activate the component (OPTIONAL, default false)
 function Component:SetRegister(p1, p2, p3) end
 

@@ -21,6 +21,7 @@ FRAMEREG_STORE             = Register
 FRAMEREG_VISUAL            = Register
 FRAMEREG_SIGNAL            = Register
 FRAMEREG_COUNT             = Register
+REG_INFINITE               = Register
 
 EntityAction = EventListener
 FactionAction = EventListener
