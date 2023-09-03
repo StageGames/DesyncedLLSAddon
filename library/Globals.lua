@@ -42,3 +42,13 @@ data = {
 
 --- ToDo: Add documentation
 ModPackage = {}
+
+--- ToDo: Add documentation
+InputDefaultActionMappings = {}
+
+--- ToDo: Add documentation
+InputTooltips = {}
+
+--- ToDo: Add documentation
+---@return string
+function L(...) end
