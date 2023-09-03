@@ -303,6 +303,14 @@ function Faction:GetComponents(p1, p2) return {} end
 ---@returns Entity[] # Array of entities
 function Faction:GetEntitiesWithComponent(p1, p2, p3) return {} end
 
+--- ToDo: Add documentation
+---@param p1 Register
+---@param p2 any signal
+---@param p3 any
+---@return Entity[]
+function Faction:GetEntitiesWithRegister(p1, p2, p3)
+end
+
 ---Get all entities owned by this faction that are on screen (excludes foundation entities)
 ---
 ---If true gets passed, the 5th element will be either nil, a register value or an array with 3 elements per register (reg, x, y)
