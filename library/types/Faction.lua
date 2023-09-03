@@ -291,7 +291,7 @@ function Faction:AddMood(p1, p2) end
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#faction-getcomponents)
 ---@param p1 string|nil Component id (or nil to get all components)
 ---@param p2 boolean|nil Set to true to query the base_id value of component definitions if it exists (OPTIONAL, default false)
----@returns table # Array of components
+---@returns Component[] # Array of components
 function Faction:GetComponents(p1, p2) return {} end
 
 ---Get all entities of this faction that have a given component equipped
@@ -300,7 +300,7 @@ function Faction:GetComponents(p1, p2) return {} end
 ---@param p1 string Component id
 ---@param p2 boolean|nil Set to true to query the base_id value of component definitions if it exists (OPTIONAL, default false)
 ---@param p3 boolean|nil Set to not return hidden components (OPTIONAL, default false)
----@returns table # Array of entities
+---@returns Entity[] # Array of entities
 function Faction:GetEntitiesWithComponent(p1, p2, p3) return {} end
 
 ---Get all entities owned by this faction that are on screen (excludes foundation entities)
