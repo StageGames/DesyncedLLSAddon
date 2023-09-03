@@ -1,3 +1,4 @@
+---@meta
 CC_ACTIVATED               = 1 << 0
 CC_FINISH_WORK             = 1 << 1
 CC_FINISH_SLEEP            = 1 << 2

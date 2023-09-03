@@ -1,3 +1,4 @@
+---@meta Faction
 ---@class Faction
 ---@field is_world_faction boolean True if world faction
 ---@field is_player_controlled boolean True if created for a player

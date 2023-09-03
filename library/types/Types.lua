@@ -1,3 +1,4 @@
+---@meta
 ---@class Point
 ---@field X integer
 ---@field Y integer

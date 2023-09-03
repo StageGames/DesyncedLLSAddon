@@ -1,3 +1,4 @@
+---@meta Entity
 ---@class Entity
 ---@field key integer key
 ---@field id string frame id

@@ -1,3 +1,4 @@
+---@meta Widget
 ---@class Widget
 ---@field parent Widget Parent widget (or nil if none)
 ---@field root Widget Root widget (can be self if there is no parent)

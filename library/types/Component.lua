@@ -1,3 +1,4 @@
+---@meta Component
 ---@class Component
 ---@field owner Entity Owner entity
 ---@field faction Faction|string Faction object

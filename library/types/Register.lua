@@ -1,3 +1,4 @@
+---@meta Register
 ---@class Register
 ---@field num integer Number
 ---@field id string Id
