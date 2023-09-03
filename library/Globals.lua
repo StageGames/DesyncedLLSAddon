@@ -33,7 +33,12 @@ UIMsg = EventListener
 MapMsg = EventListener
 
 --- ToDo: Add documentation
-data = {}
+data = {
+	---@type table<integer|string, Component>
+	components = {},
+	---@type table<string, Instruction>
+	instructions = {},
+}
 
 --- ToDo: Add documentation
 ModPackage = {}
