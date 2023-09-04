@@ -1,12 +1,12 @@
 ---@meta
 ---@class Point
----@field X integer
----@field Y integer
+---@field x integer
+---@field y integer
 Point = {}
 
 ---@class Area
----@field X integer
----@field Y integer
+---@field x integer
+---@field y integer
 Area = {}
 
 ---@class Color
