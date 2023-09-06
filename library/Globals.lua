@@ -1,3 +1,4 @@
+---@meta
 CC_ACTIVATED               = 1 << 0
 CC_FINISH_WORK             = 1 << 1
 CC_FINISH_SLEEP            = 1 << 2
@@ -23,6 +24,8 @@ FRAMEREG_SIGNAL            = Register
 FRAMEREG_COUNT             = Register
 REG_INFINITE               = Register
 
+TICKS_PER_SECOND           = 5
+
 EntityAction = EventListener
 FactionAction = EventListener
 ConstructionAction = EventListener
@@ -32,7 +35,29 @@ UIMsg = EventListener
 MapMsg = EventListener
 
 --- ToDo: Add documentation
-data = {}
+data = {
+	---@type table<integer|string, Component>
+	components = {},
+	---@type table<string, Instruction>
+	instructions = {},
+	---@type table<string, CodexEntry>
+	codex = {}
+}
 
 --- ToDo: Add documentation
 ModPackage = {}
+
+--- ToDo: Add documentation
+InputDefaultActionMappings = {}
+
+--- ToDo: Add documentation
+InputTooltips = {}
+
+--- ToDo: Add documentation
+---@return string
+function L(...) end
+
+--- ToDo: Add documentation
+---@return string
+function NOLOC(...) end
+

@@ -122,10 +122,10 @@ function Input.GetBindingNames() return {} end
 ---mouse_delta is a numerical value of the change for mouse inputs (mouse position, mouse wheel)
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#input-setinputprocessor)
----@param p1 function Lua function called with arguments (key_name, is_down, axis, mouse_delta)
----@param p2 boolean|nil Pass true to not apply dead zone scaling to analog gampead inputs (OPTIONAL, default false)
----@param p3 boolean|nil Pass true to not filter out periodical repeat button press events (OPTIONAL, default false)
-function Input.SetInputProcessor(p1, p2, p3) end
+---@param callback fun(key_name: string, is_down: boolean, axis, mouse_delta): boolean Lua function called with arguments (key_name, is_down, axis, mouse_delta)
+---@param unscaled_deadzone boolean|nil Pass true to not apply dead zone scaling to analog gampead inputs (OPTIONAL, default false)
+---@param unfiltered_presses boolean|nil Pass true to not filter out periodical repeat button press events (OPTIONAL, default false)
+function Input.SetInputProcessor(callback, unscaled_deadzone, unfiltered_presses) end
 
 ---Clear the active custom input processor
 ---

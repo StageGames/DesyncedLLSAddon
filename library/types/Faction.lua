@@ -1,3 +1,4 @@
+---@meta Faction
 ---@class Faction
 ---@field is_world_faction boolean True if world faction
 ---@field is_player_controlled boolean True if created for a player
@@ -41,8 +42,9 @@ function Faction:Unlock(p1, p2) return false end
 ---Check if something was unlocked
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#faction-isunlocked)
----@param p1 string Id to check
-function Faction:IsUnlocked(p1) end
+---@param tech_id string Id to check
+---@return boolean unlocked
+function Faction:IsUnlocked(tech_id) end
 
 ---Check if a tech is available for research
 ---
@@ -290,7 +292,7 @@ function Faction:AddMood(p1, p2) end
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#faction-getcomponents)
 ---@param p1 string|nil Component id (or nil to get all components)
 ---@param p2 boolean|nil Set to true to query the base_id value of component definitions if it exists (OPTIONAL, default false)
----@returns table # Array of components
+---@returns Component[] # Array of components
 function Faction:GetComponents(p1, p2) return {} end
 
 ---Get all entities of this faction that have a given component equipped
@@ -299,8 +301,16 @@ function Faction:GetComponents(p1, p2) return {} end
 ---@param p1 string Component id
 ---@param p2 boolean|nil Set to true to query the base_id value of component definitions if it exists (OPTIONAL, default false)
 ---@param p3 boolean|nil Set to not return hidden components (OPTIONAL, default false)
----@returns table # Array of entities
+---@returns Entity[] # Array of entities
 function Faction:GetEntitiesWithComponent(p1, p2, p3) return {} end
+
+--- ToDo: Add documentation
+---@param p1 Register
+---@param p2 any signal
+---@param p3 any
+---@return Entity[]
+function Faction:GetEntitiesWithRegister(p1, p2, p3)
+end
 
 ---Get all entities owned by this faction that are on screen (excludes foundation entities)
 ---

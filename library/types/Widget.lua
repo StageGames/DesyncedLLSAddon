@@ -1,3 +1,4 @@
+---@meta Widget
 ---@class Widget
 ---@field parent Widget Parent widget (or nil if none)
 ---@field root Widget Root widget (can be self if there is no parent)
@@ -11,6 +12,22 @@
 ---A widget object represents a UI object that is part of a layout tree.
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#widget)
 Widget = {}
+
+---@alias TweenProperty "x"
+---| "y"
+---| "sx"
+---| "sy"
+---| "_"
+---| "height"
+---| "opacity"
+---| "angle"
+
+---@alias EasingFunction "InOutQuad"
+---| "InOutQuart"
+---| "InQuad"
+---| "OutQuad"
+---| "OutQuad"
+---| "OutBack"
 
 ---Check if widget has not been removed yet
 ---
@@ -119,25 +136,29 @@ function Widget:SetIgnoreHitTest(p1) end
 ---Animate a numerical property
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#widget-tweento)
----@param p1 string Parameter name
----@param p2 integer Target value
----@param p3 integer|nil Duration in milliseconds (OPTIONAL, default 400)
----@param p4 integer|nil Wait time in milliseconds (OPTIONAL, default 0)
----@param p5 string|nil Easing function (OPTIONAL, default "InOutQuad")
----@param p6 function|nil Animation finished callback (OPTIONAL)
-function Widget:TweenTo(p1, p2, p3, p4, p5, p6) end
+---@param param_name string Parameter name
+---@param target_value number Target value
+---@param duration_ms number|nil Duration in milliseconds (OPTIONAL, default 400)
+---@param wait_ms integer|nil Wait time in milliseconds (OPTIONAL, default 0)
+---@param ease_func EasingFunction|nil Easing function (OPTIONAL, default "InOutQuad")
+---@param callback function|nil Animation finished callback (OPTIONAL)
+---@overload fun(param_name, target_value, duration_ms, ease_func, callback)
+---@overload fun(param_name, target_value, ease_func, callback)
+function Widget:TweenTo(param_name, target_value, duration_ms, wait_ms, ease_func, callback) end
 
 ---Animate a numerical property
 ---
----[Official Documentation](https://modding.desyncedgame.com/syntax.html#widget-tweenfromto)
----@param p1 string Parameter name
----@param p2 integer Start value
----@param p3 integer Target value
----@param p4 integer|nil Duration in milliseconds (OPTIONAL, default 400)
----@param p5 integer|nil Wait time in milliseconds (OPTIONAL, default 0)
----@param p6 string|nil Easing function (OPTIONAL, default "InOutQuad")
----@param p7 function|nil Animation finished callback (OPTIONAL)
-function Widget:TweenFromTo(p1, p2, p3, p4, p5, p6, p7) end
+---[Official Documentation](https://modding.desyncedgame.com/syntax.html#widget-tweento)
+---@param param_name string Parameter name
+---@param start_value number Start value
+---@param target_value number Target value
+---@param duration_ms integer|nil Duration in milliseconds (OPTIONAL, default 400)
+---@param wait_ms integer|nil Wait time in milliseconds (OPTIONAL, default 0)
+---@param ease_func EasingFunction|nil Easing function (OPTIONAL, default "InOutQuad")
+---@param callback function|nil Animation finished callback (OPTIONAL)
+---@overload fun(param_name, start_value, target_value, duration_ms, ease_func, callback)
+---@overload fun(param_name, start_value, target_value, ease_func, callback)
+function Widget:TweenFromTo(param_name, start_value, target_value, duration_ms, wait_ms, ease_func, callback) end
 
 ---Stop an active tween
 ---

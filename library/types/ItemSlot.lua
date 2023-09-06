@@ -1,3 +1,4 @@
+---@meta ItemSlot
 ---@class ItemSlot
 ---@field id string Item id (or nil if no item in slot)
 ---@field def table Item definition (or nil if no item in slot)

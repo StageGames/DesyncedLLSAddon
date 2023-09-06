@@ -1,0 +1,10 @@
+---@meta CodexEntry
+---@class CodexEntry
+---@field category string
+---@field index integer
+---@field title string
+---@field details string
+---@field goalicon string
+---@field text string
+---@field sound string|nil
+---@field goal_check fun(faction: Faction): boolean
