@@ -1,7 +1,7 @@
 ---@meta Component
 ---@class Component
 ---@field owner Entity Owner entity
----@field faction Faction Faction object
+---@field faction Faction|string Faction object
 ---@field exists boolean Exist state
 ---@field key integer key
 ---@field id string Component id
