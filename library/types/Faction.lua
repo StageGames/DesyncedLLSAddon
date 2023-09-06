@@ -42,8 +42,9 @@ function Faction:Unlock(p1, p2) return false end
 ---Check if something was unlocked
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#faction-isunlocked)
----@param p1 string Id to check
-function Faction:IsUnlocked(p1) end
+---@param tech_id string Id to check
+---@return boolean unlocked
+function Faction:IsUnlocked(tech_id) end
 
 ---Check if a tech is available for research
 ---

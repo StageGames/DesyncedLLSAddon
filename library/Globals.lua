@@ -24,6 +24,8 @@ FRAMEREG_SIGNAL            = Register
 FRAMEREG_COUNT             = Register
 REG_INFINITE               = Register
 
+TICKS_PER_SECOND           = 5
+
 EntityAction = EventListener
 FactionAction = EventListener
 ConstructionAction = EventListener
@@ -38,6 +40,8 @@ data = {
 	components = {},
 	---@type table<string, Instruction>
 	instructions = {},
+	---@type table<string, CodexEntry>
+	codex = {}
 }
 
 --- ToDo: Add documentation
@@ -52,3 +56,8 @@ InputTooltips = {}
 --- ToDo: Add documentation
 ---@return string
 function L(...) end
+
+--- ToDo: Add documentation
+---@return string
+function NOLOC(...) end
+

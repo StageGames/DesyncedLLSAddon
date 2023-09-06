@@ -3,6 +3,9 @@
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#ui)
 UI = {}
 
+---@alias WidgetDirection "DOWN" | "UP" | "LEFT" | "RIGHT"
+---@alias WidgetAlignment "MIDDLE" | "LEFT" | "RIGHT" | "TOP" | "BOTTOM"
+
 ---Register a layout definition tag
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#ui-register)
@@ -64,31 +67,25 @@ function UI.GetScreenSize() return 0 end
 ---If there isn't enough space in the crosswise direction it will shift horizontally (if UP/DOWN) or vertically (if LEFT/RIGHT)
 ---
 ---[Official Documentation](https://modding.desyncedgame.com/syntax.html#ui-menupopup)
----@param p1 Widget Widget
----@param p2 string|nil Direction (OPTIONAL, default DOWN or UP/LEFT/RIGHT)
----@param p3 string|nil Alignment (OPTIONAL, default MIDDLE or LEFT/RIGHT/TOP/BOTTOM)
----@param p4 Widget|nil Pop up next to this widget (OPTIONAL, default pop up at mouse cursor)
----@param p5 integer Attachment X offset
----@param p6 integer Attachment Y offset
----@returns Widget # The widget passed in the first argument or that was created
-function UI.MenuPopup(p1, p2, p3, p4, p5, p6) return Widget end
+---@param widget Widget|string Widget OR widget name
+---@param direction WidgetDirection|nil Direction (OPTIONAL, default DOWN or UP/LEFT/RIGHT)
+---@param alignment WidgetAlignment|nil Alignment (OPTIONAL, default MIDDLE or LEFT/RIGHT/TOP/BOTTOM)
+---@param pop_at Widget|nil Pop up next to this widget (OPTIONAL, default pop up at mouse cursor)
+---@param x_offset integer|nil Attachment X offset
+---@param y_offset integer|nil Attachment Y offset
+---@return Widget # The widget passed in the first argument
+function UI.MenuPopup(widget, direction, alignment, pop_at, x_offset, y_offset) end
 
----Pop up a context menu or window
----
----If there isn't enough space in the direction it will flip to the other side
----
----If there isn't enough space in the crosswise direction it will shift horizontally (if UP/DOWN) or vertically (if LEFT/RIGHT)
----
----[Official Documentation](https://modding.desyncedgame.com/syntax.html#ui-menupopup)
----@param p1 string Layout text for creating a new widget inline
----@param p2 table|nil Property table for the inline widget (OPTIONAL)
----@param p3 string|nil Direction (OPTIONAL, default DOWN or UP/LEFT/RIGHT)
----@param p4 string|nil Alignment (OPTIONAL, default MIDDLE or LEFT/RIGHT/TOP/BOTTOM)
----@param p5 Widget|nil Pop up next to this widget (OPTIONAL, default pop up at mouse cursor)
----@param p6 integer Attachment X offset
----@param p7 integer Attachment Y offset
----@returns Widget # The widget passed in the first argument or that was created
-function UI.MenuPopup(p1, p2, p3, p4, p5, p6, p7) return Widget end
+---Create and pop up a context menu or window
+---@param layout string Layout text for creating a new widget inline
+---@param properties table|nil Property table for the inline widget (OPTIONAL)
+---@param direction string|nil Direction (OPTIONAL, default DOWN or UP/LEFT/RIGHT)
+---@param alignment string|nil Alignment (OPTIONAL, default MIDDLE or LEFT/RIGHT/TOP/BOTTOM)
+---@param pop_at Widget|nil Pop up next to this widget (OPTIONAL, default pop up at mouse cursor)
+---@param x_offset integer|nil Attachment X offset
+---@param y_offset integer|nil Attachment Y offset
+---@returns Widget # The widget that was created
+function UI.MenuPopup(layout, properties, direction, alignment, pop_at, x_offset, y_offset) end
 
 ---Close the context menu opened with MenuPopup
 ---
